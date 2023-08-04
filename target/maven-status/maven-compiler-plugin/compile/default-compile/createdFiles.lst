@@ -1,0 +1,6 @@
+com\mongoexample\demo\DemoApplication.class
+com\mongoexample\demo\UserServiceImpl.class
+com\mongoexample\demo\User.class
+com\mongoexample\demo\UserRepository.class
+com\mongoexample\demo\UserController.class
+com\mongoexample\demo\UserService.class
