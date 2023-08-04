@@ -1,4 +1,4 @@
-# Created at 2023-08-04T20:39:44.053
+# Created at 2023-08-05T01:11:19.756
 Boot Manifest-JAR contains absolute paths in classpath 'D:\Jetbrains\IntelliJ_Projects\mongo-example\demo\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root
