@@ -45,10 +45,8 @@ public class UserServiceImpl implements UserService {
         Optional<User> currentUserOptional = userRepository.findById(userId);
         if(currentUserOptional.isPresent()){
             User currentUser = currentUserOptional.get();
-            currentUser.setAge(user.getAge());
-            currentUser.setName(user.getName());
-            currentUser.setEmail(user.getEmail());
-            userRepository.save(currentUser);
+            user.setId(currentUser.getId());
+            userRepository.save(user);
             return true;
         }else {
             return false;

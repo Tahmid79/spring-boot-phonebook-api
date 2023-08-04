@@ -1,5 +1,6 @@
 package com.mongoexample.demo;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,7 +33,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody User user){
+    public ResponseEntity<User> addUser(@Valid @RequestBody User user){
         boolean isUserAdded = userService.addUser(user);
         if(!isUserAdded){
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
@@ -51,12 +52,12 @@ public class UserController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public ResponseEntity<HttpStatus> deleteUser(@PathVariable(value = "id") String id){
+    public ResponseEntity<Boolean> deleteUser(@PathVariable(value = "id") String id){
         boolean isUserDeleted = userService.deleteUserById(id);
         if(!isUserDeleted){
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(false,HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(true,HttpStatus.OK);
     }
 
 }
